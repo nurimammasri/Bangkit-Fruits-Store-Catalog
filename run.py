@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import os
 
 import requests
@@ -60,5 +61,11 @@ def post_request():
             raise Exception("GET failed with status code {}".format(response.status_code))
 
 
+def make_json():
+    with open('fruits.json', 'w') as fruits_json:
+        json.dump(prosess_text(), fruits_json, indent=2)
+
+
 if __name__ == '__main__':
+    make_json()
     post_request()
