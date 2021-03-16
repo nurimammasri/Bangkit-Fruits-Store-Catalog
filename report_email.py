@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
+import datetime
 import json
 import os
 import sys
-import datetime
 
 import emails
 import reports
+from operator import itemgetter
 
 
 def load_data(filename):
@@ -16,15 +17,10 @@ def load_data(filename):
     return data
 
 
-def format_car(car):
-    """Given a car dictionary, returns a nicely formatted name."""
-    return "{} {} ({})".format(
-        car["car_make"], car["car_model"], car["car_year"])
-
-
 def process_data(data):
     summary_list = []
-    for item in data:
+    new_data = sorted(data, key=itemgetter('name'))
+    for item in new_data:
         summary = [
             "",
             "name: {}".format(item['name']),
@@ -66,6 +62,7 @@ def main(argv):
     date = datetime.datetime.now().strftime("%B %d, %Y")
     title = "Processed Update on {}".format(date)
     paragraph = generate_info(data)
+    print(paragraph)
 
     reports.generate_report(attachment, title, paragraph)
 
