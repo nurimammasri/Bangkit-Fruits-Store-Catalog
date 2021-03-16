@@ -18,7 +18,7 @@ desc_dir = os.path.join("supplier-data", "descriptions", "")
 # desc_dir = os.path.join(os.sep, "supplier-data", "images", "")
 
 # list name file in /data/feedback
-images_list = image_list = [item for item in os.listdir(images_dir) if item.endswith(".jpeg")]
+images_list = [item for item in os.listdir(images_dir) if item.endswith(".jpeg")]
 desc_list = os.listdir(desc_dir)
 
 
@@ -36,13 +36,12 @@ def prosess_text():
             text_list = [n.strip() for n in file]
             text_dict = {}
             for index, value in enumerate(text_list):
-                if key[index] == 'image_name':
-                    text_dict[key[index]] = images_list[file_index]
-                elif key[index] == 'weight':
+                if key[index] == 'weight':
                     value = value.replace(" lbs", "")
                     text_dict[key[index]] = int(value)
                 else:
                     text_dict[key[index]] = value
+            text_dict[key[3]] = images_list[file_index]
             list_dict.append(text_dict)
     return list_dict
 
