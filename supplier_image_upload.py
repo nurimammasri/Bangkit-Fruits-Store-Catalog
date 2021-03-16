@@ -31,9 +31,8 @@ def prosess_image():
             if response.ok and response.status_code == 201:
                 print("Success")
             else:
+                response.raise_for_status()
                 raise Exception("GET failed with status code {}".format(response.status_code))
-
-            response.raise_for_status()
 
 
 if __name__ == '__main__':
