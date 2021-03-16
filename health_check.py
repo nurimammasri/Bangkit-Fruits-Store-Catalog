@@ -51,7 +51,7 @@ def check_memory_usage():
 def check_localhost():
     """hostname 'localhost' can be resolved to '127.0.0.1'"""
     localhost = socket.gethostbyname('localhost')
-    if localhost == "127.0.0.1":
+    if localhost != "127.0.0.1":
         specified_email(subject_list[3])
     else:
         print("Hostname OK")
