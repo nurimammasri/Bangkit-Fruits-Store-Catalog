@@ -1,13 +1,14 @@
+#!/usr/bin/env python3
 import os
 
 from PIL import Image
 
 # depending on windows use below
-imagesDirectory = os.path.join("supplier-data", "images", "")
+# imagesDirectory = os.path.join("supplier-data", "images", "")
 
 
 # depending on linux use below
-# imagesDirectory = os.path.join(os.sep, "supplier-data", "images", "")
+imagesDirectory = os.path.join(os.sep, "supplier-data", "images", "")
 
 
 def create_destination():
