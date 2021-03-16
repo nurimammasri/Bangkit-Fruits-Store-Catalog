@@ -8,6 +8,7 @@ imagesDirectory = os.path.join("supplier-data", "images", "")
 
 
 # depending on linux use below
+# if PermissionError: [Errno 13] Permission denied: '/supplier-data' delete os.sep
 # imagesDirectory = os.path.join(os.sep, "supplier-data", "images", "")
 
 
